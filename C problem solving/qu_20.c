@@ -1,0 +1,45 @@
+//Write a C program to read the roll no, name and marks of three subjects and calculate the total, percentage and division
+#include<stdio.h>
+struct student
+{
+    char name[50];
+    int roll;
+    float phy , math , chem;
+    float total;
+};
+
+int main()
+{
+    struct student rec ;
+    printf("Enter the name of the student: " );
+    scanf("%s" , rec.name);
+    printf("Enter the roll of the student: " );
+    scanf("%d" , &rec.roll);
+    printf("Enter the physics marks of the student: " );
+    scanf("%f" , &rec.phy);
+    printf("Enter the chemistry marks of the student: " );
+    scanf("%f" , &rec.chem);
+    printf("Enter the math marks of the student: " );
+    scanf("%f" , &rec.math);
+    rec.total= rec.math + rec.chem + rec.phy;
+    printf("The total mark : %.2f\n" , rec.total);
+    float percentage = rec.total/3;
+    printf("The percentage : %.2f\n" , percentage);
+    if (percentage >= 80)
+    {
+        printf("You have got first division");
+    }
+    else if (percentage <= 80 && percentage >= 50)
+    {
+        printf("You have got second division");
+    }
+    else if (percentage <= 50 && percentage >= 30)
+    {
+        printf("You have got third division");
+    }
+    else
+    {
+        printf("Result unavailable . FAILED!!! ");
+    } 
+    return 0;
+}

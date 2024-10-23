@@ -1,0 +1,70 @@
+// C Program to Add and subtract Two Complex Numbers
+#include<stdio.h>
+typedef struct complexNumber
+{
+    int real;
+    int img;
+    char op;
+}complex;
+
+complex add(complex x, complex y);
+complex sub(complex x , complex y);
+int main()
+{
+    complex a , b, sum ,difference;
+    char operation;
+
+    //Get the first number
+    printf("Enter the first number (without i): ");
+    scanf("%d %c %d" , &a.real ,&a.op, &a.img);
+
+    // Get the secmod number
+    printf("Enter the second number (without i): ");
+    scanf("%d %c %d" , &b.real ,&b.op, &b.img);
+
+    //print the two numbers for user satisfaction
+    printf("Entered first number: %d + %di\n" , a.real , a.img);
+    printf("Entered second number: %d + %di\n" , b.real ,b.img);
+
+    //Ask the user is he want to do addition or subtraction
+    printf("What kind of operation you want to do????");
+    scanf(" %c" , &operation);
+
+    if (operation == '+')
+    {
+        sum = add(a , b);
+        printf("Sum of the complex numbers: %d + %di\n", sum.real, sum.img);
+    }
+    else if (operation == '-')
+    {
+        difference = sub(a , b);
+        printf("Difference of the complex numbers: %d + (%di)\n", difference.real, difference.img);
+    }
+    return 0;
+}
+
+complex add(complex x , complex y)
+{
+    // Define a new complex number.
+    complex add;
+ 
+    // Add real part of a&b
+    add.real = x.real + y.real;
+ 
+    // Add Imaginary part of a&b
+    add.img = x.img + y.img;
+
+    return(add);
+}
+complex sub(complex x , complex y)
+{
+    // Define a new complex number.
+    complex sub;
+ 
+    // sub real part of a&b
+    sub.real = x.real - y.real;
+ 
+    // sub Imaginary part of a&b
+    sub.img = x.img - y.img;
+    return(sub);
+}

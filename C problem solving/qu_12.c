@@ -1,0 +1,46 @@
+//Write a Program to check if the given string is a palindrome string or not
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+
+bool ispalindrome(char str1[100] , int l, int h)
+{
+    //if the string size is 0 or 1 it is a palindrome
+    if(l>=h)
+    {
+        return true;
+    }
+
+    // if both the terminal characters not matching, not palindrome
+    if (str1[l] != str1[h])
+    {
+        return false;
+    }
+
+     // call the smaller sub-problem
+     return ispalindrome(str1, l+1, h-1);
+    
+}
+
+int main()
+{
+    char str1[100];
+    printf("Enter the text: ");
+    scanf("%s" , &str1); //Get the string from the user
+
+    //Start from first and last character of the text
+    int l =0; 
+    int h =strlen(str1)-1;
+    bool ans = ispalindrome(str1, l, h);
+
+    if (ans)
+    {
+        printf("%s is palindrome.\n" , str1);
+    }
+    else
+    {
+        printf("%s is not palindrome.\n" , str1);
+    }
+    
+    return 0;
+}

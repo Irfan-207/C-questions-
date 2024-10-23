@@ -1,0 +1,37 @@
+// Write a program to reverse a number and check is the number palindrome or not
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+{
+    // Write a program to reverse a number 
+    int n;
+    printf("Enter the number : ");
+    scanf("%d" , &n);
+    printf("Entered number : %d\n" , n);
+    int rev = 0;
+
+    while (n > 0)
+    {
+        rev = rev * 10 + n % 10;
+        n = n /10;
+    }
+    printf("Reverse number : %d\n", rev);
+
+    //Write a program to check is the number palindrome or not
+    int result =0 , rem;
+    while(n!=0)
+    {
+        rem = n%10;
+        result = result*10 + rem;
+        n = n/10;
+    }
+    if(result== n)
+    {
+        printf("%d is a palindrome number !!" , n);
+    }
+    else
+    {
+        printf("%d is not a palindrome number !!" , n);
+    }
+    return 0;
+}

@@ -1,0 +1,119 @@
+//All about Numbers
+#include<stdio.h>
+#include<math.h>
+void menu() {
+    printf("\t\t\t\t\n1. Check Neon Number.\n");
+    printf("\t\t\t\t\n2. Find All Factors of Number\n");
+    printf("\t\t\t\t\n3. Find the Sum of Fibonacci Numbers at Even Indexes\n");
+}
+// Function prototyping
+int Neon_num(int x);
+void Factors(int n);
+int calculateEvenSum(int n);
+int main()
+{
+    menu();
+    int choice;
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    switch (choice)
+    {
+        case 1:
+        {
+            int num;
+            printf("Enter your number : ");
+            scanf("%d" , &num);
+            int result = Neon_num(num);
+            if (result == 1)
+            {
+                printf("%d is a neon number !!! ", num);
+            }
+            else
+            {
+                printf("%d is not a neon number!! " , num);
+            }          
+            break;
+        }
+        case 2:
+        {
+            int num;
+            printf("Enter your number : ");
+            scanf("%d" , &num);
+            printf("The divisors of 100 are: "); 
+            Factors(num); 
+            break;
+        }
+        case 3:
+        {
+            int num;
+            printf("Enter your number : ");
+            scanf("%d" , &num);
+            int sum = calculateEvenSum(num);
+            printf("Even Indexes Fibonacci sum upto %d terms : %d", num , sum); 
+            break;
+        }
+    }
+    return 0;
+}
+
+// Neon number
+int Neon_num(int x)
+{
+    int n = x * x;
+    int sqr = n;
+    int digit , sum = 0;
+    while (sqr != 0)
+    {
+        // Extract number
+        digit = sqr % 10;
+        sum += digit ;
+        sqr = sqr / 10;
+    }
+    // Checking the condition
+    if (sum == x)
+    {
+        return 1;
+    }
+    else 
+    {
+        return 0;
+    }
+
+}
+
+// Find All Factors of Number
+void Factors(int n) 
+{ 
+    for (int i = 1; i <= n; i++){
+        if (n % i == 0) {
+            printf("%d ", i); 
+        }
+    }
+} 
+
+// Find the Sum of Fibonacci Numbers at Even Indexes 
+int calculateEvenSum(int n)
+{
+    // return 0 if n is equals or less than to 0
+    if (n <= 0){
+        return 0;
+    }
+    
+    int fibo[2 * n + 1];
+    fibo[0] = 0, fibo[1] = 1;
+
+    // Initialize the result
+    int sum = 0;
+
+    // Adding the remaining terms
+    for (int i = 2; i <= 2 * n; i++) {
+        fibo[i] = fibo[i - 1] + fibo[i - 2];
+
+        // For even indices
+        if (i % 2 == 0)
+            sum += fibo[i];
+    }
+
+    // Return alternating sum
+    return sum;
+}

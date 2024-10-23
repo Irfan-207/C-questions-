@@ -1,0 +1,66 @@
+//All in one LCM
+#include<stdio.h>
+
+void menu()
+{
+    printf("1. LCM of Two Numbers\n");
+    printf("2. LCM of Two Numbers using GCD\n");
+}
+int LCM1(int x, int y);
+long long lcm(int a, int b);
+long long gcd(long long int a, long long int b); 
+int main()
+{
+    int num1 , num2;
+    printf("Enter two positive integers: ");
+    scanf("%d %d" , &num1 , &num2);
+    menu();
+    int choice;
+    printf("Enter your choice : ");
+    scanf("%d" , &choice);
+    switch (choice)
+    {
+        case 1:
+        {
+            
+            printf("LCM of %d and %d is : %d " , num1 , num2 , LCM1(num1 , num2));
+            break;
+        }
+        case 2:
+        {
+            printf("LCM of %d and %d is : %d " , num1 , num2 , lcm(num1 , num2));
+            break;
+        }
+    }
+    return 0;
+}
+
+//LCM of two integers
+int LCM1(int x , int y)
+{
+    int max = (x > y) ? x : y;
+    while (1)
+    {
+        if (max % x ==0 && max % y == 0)
+        {
+            return max;
+            break;
+        }
+        ++max;
+    }
+}
+
+//GCD function
+// Recursive function to return gcd of a and b
+long long gcd(long long int a, long long int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+// LCM of Two Numbers using GCD
+long long lcm(int a, int b) 
+{ 
+    return (a / gcd(a, b)) * b; 
+}
