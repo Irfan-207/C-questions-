@@ -25,7 +25,7 @@ Each problem has its own directory containing the solution code (`main.cpp`) and
 ## Installation
 1. Clone the repository:
 ```sh
-git clone https://github.com/Irfan-207/Codeforces-Problems.git
+git clone https://github.com/Irfan-207/C-questions.git
 ```
 ## Usage
 - Open the problem directory you are interested in.
